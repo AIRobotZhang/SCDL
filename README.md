@@ -1,3 +1,8 @@
+## Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning (EMNLP 2021 Accept-Findings)
+
+## Framework
+![image](img/fw.png)
+
 ## Requirements
 
 - python==3.7.4
