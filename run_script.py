@@ -517,8 +517,8 @@ def train(args, train_dataset, tokenizer, labels, pad_token_label_id):
 
 def main():
     args = config()
-    args.do_train = args.do_train.lower()
-    args.do_test = args.do_test.lower()
+    # args.do_train = args.do_train.lower()
+    # args.do_test = args.do_test.lower()
 
     if (
         os.path.exists(args.output_dir)
@@ -589,46 +589,41 @@ def main():
     logger.info("Training/evaluation parameters %s", args)
 
     # Training
-    if args.do_train=="true":
+    if args.do_train:
         train_dataset = load_and_cache_examples(args, tokenizer, labels, pad_token_label_id, mode="train")
         global_step, tr_loss, best_results = train(args, train_dataset, tokenizer, labels, pad_token_label_id)
         logger.info(" global_step = %s, average loss = %s", global_step, tr_loss)
-    # Testing
-    if args.do_test=="true" and args.local_rank in [-1, 0]:
-        best_test = [0, 0, 0]
-        for tors in MODEL_NAMES:
-            best_test = predict(args, tors, labels, pad_token_label_id, best_test)
 
-def predict(args, tors, labels, pad_token_label_id, best_test):
-    path = os.path.join(args.output_dir+tors, "checkpoint-best-2")
-    tokenizer = RobertaTokenizer.from_pretrained(path, do_lower_case=args.do_lower_case)
-    model = RobertaForTokenClassification_Modified.from_pretrained(path)
-    model.to(args.device)
+# def predict(args, tors, labels, pad_token_label_id, best_test):
+#     path = os.path.join(args.output_dir+tors, "checkpoint-best-2")
+#     tokenizer = RobertaTokenizer.from_pretrained(path, do_lower_case=args.do_lower_case)
+#     model = RobertaForTokenClassification_Modified.from_pretrained(path)
+#     model.to(args.device)
 
-    # if not best_test:
+#     # if not best_test:
    
-    # result, predictions, _, _ = evaluate(args, model, tokenizer, labels, pad_token_label_id, best=best_test, mode="test")
-    result, _, best_test, _ = evaluate(args, model, tokenizer, labels, pad_token_label_id, best_test, mode="test", \
-                                                        logger=logger, verbose=False)
-    # Save results
-    output_test_results_file = os.path.join(args.output_dir, "test_results.txt")
-    with open(output_test_results_file, "w") as writer:
-        for key in sorted(result.keys()):
-            writer.write("{} = {}\n".format(key, str(result[key])))
+#     # result, predictions, _, _ = evaluate(args, model, tokenizer, labels, pad_token_label_id, best=best_test, mode="test")
+#     result, _, best_test, _ = evaluate(args, model, tokenizer, labels, pad_token_label_id, best_test, mode="test", \
+#                                                         logger=logger, verbose=False)
+#     # Save results
+#     output_test_results_file = os.path.join(args.output_dir, "test_results.txt")
+#     with open(output_test_results_file, "w") as writer:
+#         for key in sorted(result.keys()):
+#             writer.write("{} = {}\n".format(key, str(result[key])))
 
-    return best_test
-    # Save predictions
-    # output_test_predictions_file = os.path.join(args.output_dir, "test_predictions.txt")
-    # with open(output_test_predictions_file, "w") as writer:
-    #     with open(os.path.join(args.data_dir, args.dataset+"_test.json"), "r") as f:
-    #         example_id = 0
-    #         data = json.load(f)
-    #         for item in data: # original tag_ro_id must be {XXX:0, xxx:1, ...}
-    #             tags = item["tags"]
-    #             golden_labels = [labels[tag] for tag in tags]
-    #             output_line = str(item["str_words"]) + "\n" + str(golden_labels)+"\n"+str(predictions[example_id]) + "\n"
-    #             writer.write(output_line)
-    #             example_id += 1
+#     return best_test
+#     # Save predictions
+#     # output_test_predictions_file = os.path.join(args.output_dir, "test_predictions.txt")
+#     # with open(output_test_predictions_file, "w") as writer:
+#     #     with open(os.path.join(args.data_dir, args.dataset+"_test.json"), "r") as f:
+#     #         example_id = 0
+#     #         data = json.load(f)
+#     #         for item in data: # original tag_ro_id must be {XXX:0, xxx:1, ...}
+#     #             tags = item["tags"]
+#     #             golden_labels = [labels[tag] for tag in tags]
+#     #             output_line = str(item["str_words"]) + "\n" + str(golden_labels)+"\n"+str(predictions[example_id]) + "\n"
+#     #             writer.write(output_line)
+#     #             example_id += 1
 
 if __name__ == "__main__":
     main()

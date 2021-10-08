@@ -39,21 +39,30 @@
 ```
 
 ## How to run
-### 1. Training
 ```console
-sh run_script.sh <GPU ID> <DATASET NAME> <IF TRAINING=True> <IF TESTING=False>
+sh run_script.sh <GPU ID> <DATASET NAME>
 ```
 e.g., 
 ```console
-sh run_script.sh 0 conll03 True False
+sh run_script.sh 0 conll03
 ```
+Specific parameters can be found in our paper.
 
-### 2. Testing
-```console
-sh run_script.sh <GPU ID> <DATASET NAME> <IF TRAINING=False> <IF TESTING=True>
+## Citation
 ```
-e.g., 
-```console
-sh run_script.sh 0 conll03 False True
+@inproceedings{zhang-etal-2021,
+    title = "Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning",
+    author = "Zhang, Xinghua  and
+      Yu, Bowen  and
+      Liu, Tingwen  and
+      Zhang, Zhenyu  and
+      Sheng, Jiawei  and
+      Xue, Mengge  and
+      Xu, Hongbo",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2021",
+    month = nov,
+    year = "2021",
+    address = "Online and in the Barceló Bávaro Convention Centre, Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+}
 ```
-

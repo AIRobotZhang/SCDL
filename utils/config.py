@@ -40,14 +40,6 @@ def config():
         required=True,
         help="The output directory where the model predictions and checkpoints will be written.",
     )
-    # parser.add_argument(
-    #     "--checkpoints",
-    #     default=None,
-    #     type=str,
-    #     required=True,
-    #     help="The checkpoints have been written.",
-    # )
-
     # Other parameters
     parser.add_argument(
         "--student1_config_name", default="", type=str, help="Pretrained config name or path if not the same as model_name"
@@ -80,9 +72,9 @@ def config():
         help="The maximum total input sequence length after tokenization. Sequences longer "
         "than this will be truncated, sequences shorter will be padded.",
     )
-    parser.add_argument("--do_train", default="false", type=str, help="Whether to run training.")
-    # parser.add_argument("--do_eval", action="store_true", help="Whether to run eval on the dev set.")
-    parser.add_argument("--do_test", default="false", type=str, help="Whether to run predictions on the test set.")
+    parser.add_argument("--do_train", action="store_true", help="Whether to run training.")
+    # # parser.add_argument("--do_eval", action="store_true", help="Whether to run eval on the dev set.")
+    # parser.add_argument("--do_test", default="false", type=str, help="Whether to run predictions on the test set.")
     parser.add_argument(
         "--evaluate_during_training",
         action="store_true",
