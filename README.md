@@ -46,7 +46,7 @@ e.g.,
 ```console
 sh run_script.sh 0 conll03
 ```
-Specific parameters can be found in our paper.
+Specific parameters for different datasets can be found in our paper, and then modify them in ```run_script.sh```.
 
 ## Citation
 ```
