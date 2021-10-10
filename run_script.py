@@ -240,6 +240,9 @@ def random_sampler(args, label_, prob=None):
     else:
         prob_ = torch.rand(size).to(args.device)
     num_samples = int(0.2*size)
+    if num_samples <= 0:
+        return label!=-100
+
     # print(prob_)
     select_ids = torch.multinomial(prob_, num_samples)
     non_entity[select_ids] = -100
