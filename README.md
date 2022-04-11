@@ -1,4 +1,4 @@
-## Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning (EMNLP 2021)(https://aclanthology.org/2021.emnlp-main.839/)
+## [Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning (EMNLP 2021)](https://aclanthology.org/2021.emnlp-main.839/)
 
 ## Framework
 ![image](img/fw.png)
