@@ -50,3 +50,12 @@ Specific parameters for different datasets can be found in our paper, and then m
 
 ## Notes and Acknowledgments
 The implementation is based on https://github.com/cliang1453/BOND
+
+## Citation
+```
+@inproceedings{zhang:2021,
+  title={Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning},
+  author={Xinghua Zhang and Bowen Yu and Tingwen Liu and Zhenyu Zhang and Jiawei Sheng and Xue Mengge and Hongbo Xu},
+  booktitle={Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing},
+  year={2021}
+}
