@@ -1,4 +1,4 @@
-## Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning (EMNLP 2021 Accept-Findings)
+## Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning (EMNLP 2021)(https://aclanthology.org/2021.emnlp-main.839/)
 
 ## Framework
 ![image](img/fw.png)
@@ -48,21 +48,5 @@ sh run_script.sh 0 conll03
 ```
 Specific parameters for different datasets can be found in our paper, and then modify them in ```run_script.sh```.
 
-## Citation
-```
-@inproceedings{zhang-etal-2021,
-    title = "Improving Distantly-Supervised Named Entity Recognition with Self-Collaborative Denoising Learning",
-    author = "Zhang, Xinghua  and
-      Yu, Bowen  and
-      Liu, Tingwen  and
-      Zhang, Zhenyu  and
-      Sheng, Jiawei  and
-      Xue, Mengge  and
-      Xu, Hongbo",
-    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2021",
-    month = nov,
-    year = "2021",
-    address = "Online and in the Barceló Bávaro Convention Centre, Punta Cana, Dominican Republic",
-    publisher = "Association for Computational Linguistics",
-}
-```
+## Notes and Acknowledgments
+The implementation is based on https://github.com/cliang1453/BOND
